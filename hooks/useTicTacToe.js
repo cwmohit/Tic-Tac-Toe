@@ -10,6 +10,7 @@ const useTicTacToe = ({
   const [disableUser, setDisableUser] = useState(false);
   const botRef = useRef(null);
 
+  /* User cell click action */
   const onClickCell = (cell) => {
     if (disableUser) return;
      if(userMoves.includes(cell) || botMoves.includes(cell)) return;
@@ -17,18 +18,21 @@ const useTicTacToe = ({
      setEmptyCells(emptyCells.filter(c => c !== cell));
   };
 
+  /* Get cell color */
   const getCellColor = (cell) => {
     if(userMoves.includes(cell)) return 'bg-[#95E52E] text-purple-900';
     if(botMoves.includes(cell)) return 'bg-purple-500 text-[#95E52E]';
     return 'bg-purple-900';
   }
 
+   /* Get cell value */
   const getValue = (cell) => {
     if(userMoves.includes(cell)) return 'X';
     if(botMoves.includes(cell)) return 'O';
     return '';
   }
 
+  /* Check who won */
   const checkWin = () => {
     const winningCombinations = [
       [0, 1, 2],
@@ -50,11 +54,13 @@ const useTicTacToe = ({
     return null;
   }
 
+  /* Check if draw */
   const checkDraw = () => {
     if (emptyCells.length === 0) return true;
     return false;
   }
 
+ /* Reset the game */
  const resetGame = () => {
   setBotMoves([]);
   setUserMoves([]);
@@ -64,6 +70,7 @@ const useTicTacToe = ({
  }
 
   useEffect(() => {
+    /* Bot moves */
     if(userMoves.length){
       setDisableUser(true);
       botRef.current = setTimeout(() => {
@@ -76,6 +83,7 @@ const useTicTacToe = ({
   }, [userMoves])
 
   useEffect(() => {
+    /* Continuesly checking who won / draw */
     const winner = checkWin();
     const draw = checkDraw();
     setTimeout(() => {
