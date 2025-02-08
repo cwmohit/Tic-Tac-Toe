@@ -15,7 +15,7 @@ export default function GameHome() {
     <div className="min-h-screen w-full p-8" style={{
       background: "rgb(36 4 62)"
     }}>
-      <div className="w-[320px] md:w-[400px] h-[320px] xl:h-[400px] gap-2 mx-auto grid grid-cols-3 p-2 justify-center rounded-2xl bg-purple-700 border-2 border-yellow-[#95E52E]">
+      <div className="w-[320px] md:w-[400px] h-[320px] xl:h-[400px] gap-2 mx-auto grid grid-cols-3 p-2 justify-center rounded-2xl bg-purple-700 border-4 border-[#95E52E]">
         {cells?.map((cell) => (
           <TicTacToeCell
             key={cell}
