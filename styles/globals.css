@@ -19,3 +19,16 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-secondary{
+  background: #95E52E;
+}
+
+.text-secondary{
+  color: #95E52E;
+}
+
+.highlighted-cell{
+  color: #171717;
+  border: 4px dashed #95E52E;
+}

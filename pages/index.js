@@ -8,7 +8,9 @@ export default function GameHome() {
     onClickCell,
     getCellColor,
     getValue,
-    gameHistory
+    gameHistory,
+    resetGame,
+    currentWon
   } = useTicTacToe({ cells })
 
   return (
@@ -25,6 +27,13 @@ export default function GameHome() {
             value={getValue(cell)}
           />
         ))}
+      </div>
+
+      <div className="flex justify-center items-center gap-4 flex-row-reverse mt-4">
+        <button className="bg-secondary text-white text-lg py-2 px-4 rounded-xl" onClick={resetGame}>
+           Reset
+        </button>
+        {currentWon ? <p className="text-white text-lg">Result: {currentWon === "user" ? "Win" : currentWon === "bot" ? "Lost" : "Tie"}</p> : ''}
       </div>
 
       <hr className="mt-14 md:mt-20 border-t border-gray-500" />
